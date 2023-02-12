@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+namespace HalfHunter.Player
+{ 
+    public class PlayerView : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private PlayerController m_PlayerController;
+		private void Update()
+		{
+			m_PlayerController.RotateCamera();
+		}
+		public void SetController(PlayerController _playerController)
+        {
+            m_PlayerController = _playerController;
+        }
     }
 }
