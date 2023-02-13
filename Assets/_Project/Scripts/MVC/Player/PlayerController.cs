@@ -33,7 +33,7 @@ namespace HalfHunter.Player
 		public void MovePlayer()
 		{
 			m_MoveDirection = m_PlayerTransform.forward * m_InputManager.MovementInput().y + m_PlayerTransform.right * m_InputManager.MovementInput().x;
-			m_PlayerView.transform.position += m_MoveDirection * m_PlayerModel.Speed * Time.fixedDeltaTime;
+			m_PlayerView.GetRigidBody().MovePosition(m_MoveDirection * m_PlayerModel.Speed * Time.fixedDeltaTime + m_PlayerView.GetRigidBody().position);
 		}
 
 		public void PlayerJump()
