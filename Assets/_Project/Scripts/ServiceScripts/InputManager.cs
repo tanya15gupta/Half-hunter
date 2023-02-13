@@ -18,5 +18,21 @@ namespace HalfHunter.Player
             m_SmootheMouseMovement.y = Mathf.Lerp(m_SmootheMouseMovement.y, mouseMovement.y, 1f/m_Smoothening);
 			return mouseMovement;
 		}
+
+        public Vector2 MovementInput()
+        {
+			Vector2 m_MovementInput;
+			m_MovementInput.x = Input.GetAxis("Horizontal");
+            m_MovementInput.y = Input.GetAxis("Vertical");
+            return m_MovementInput;
+        }
+
+        public bool IsJumpKeyPressed()
+        {
+            if(Input.GetAxis("Jump") > 0)
+                return true;
+            return false;
+        }
+
     }
 }
