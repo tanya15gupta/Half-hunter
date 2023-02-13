@@ -9,7 +9,6 @@ namespace HalfHunter.Player
         [SerializeField] private Rigidbody m_PlayerRigidBody;
         [SerializeField] private PlayerGroundCheck m_PlayerGroundCheck;
         private PlayerController m_PlayerController;
-		public bool isPlayerGrounded;
 
 		private void Start()
 		{
@@ -18,7 +17,6 @@ namespace HalfHunter.Player
 
 		private void Update()
 		{
-			isPlayerGrounded = IsPlayerGrounded();
             m_PlayerController.RotateCamera();
 		}
 		private void FixedUpdate()

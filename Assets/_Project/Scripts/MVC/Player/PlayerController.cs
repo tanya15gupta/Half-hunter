@@ -33,7 +33,7 @@ namespace HalfHunter.Player
 		public void MovePlayer()
 		{
 			m_MoveDirection = m_PlayerTransform.forward * m_InputManager.MovementInput().y + m_PlayerTransform.right * m_InputManager.MovementInput().x;
-			m_PlayerView.GetRigidBody().velocity = m_MoveDirection * m_PlayerModel.Speed * Time.fixedDeltaTime;
+			m_PlayerView.transform.position += m_MoveDirection * m_PlayerModel.Speed * Time.fixedDeltaTime;
 		}
 
 		public void PlayerJump()
@@ -42,11 +42,6 @@ namespace HalfHunter.Player
 			{
 				if(m_InputManager.IsJumpKeyPressed())
 					m_PlayerView.GetRigidBody().AddForce(m_PlayerTransform.up * m_PlayerModel.JumpHeight, ForceMode.Impulse);
-				return;
-			}
-			else
-			{
-				m_PlayerView.GetRigidBody().AddForce(Physics.gravity * m_PlayerModel.JumpHeight/2);
 			}
 		}
 	}
